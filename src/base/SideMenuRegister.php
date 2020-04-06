@@ -4,7 +4,7 @@
 namespace PluginMaster\SideMenu\base;
 
 
-use PluginMaster\Routing\base\OptionFormatter;
+use PluginMaster\SideMenu\base\OptionFormatter;
 
 class SideMenuRegister implements SideMenuBase
 {
