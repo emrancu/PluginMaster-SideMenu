@@ -1,0 +1,34 @@
+{
+  "name": "plugin-master/sidemenu",
+  "description": "The PluginMaster SideMenu Registerer for WordPress.",
+  "license": "MIT",
+  "homepage": "https://github.com/emrancu/PluginMaster-SideMenu",
+  "support": {
+    "issues": "https://github.com/emrancu/PluginMaster-SideMenu/issues",
+    "source": "https://github.com/emrancu/PluginMaster-SideMenu"
+  },
+  "authors": [
+    {
+      "name": "AL EMRAN",
+      "email": "emrancu1@gmail.com"
+    }
+  ],
+  "keywords": [
+    "Routing",
+    "WP SideMenu Registerer",
+    "WordPress Plugin Development framework"
+  ],
+  "autoload": {
+    "classmap": [],
+    "psr-4": {
+      "PluginMaster\\SideMenu\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+
+  }
+
