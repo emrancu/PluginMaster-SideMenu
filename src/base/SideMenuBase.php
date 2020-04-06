@@ -8,5 +8,5 @@ interface SideMenuBase
 {
     public function  addMainMenu();
     public function  addSubMenu();
-    public function  removeFirstSubMenu($nav);
+    public function  removeFirstSubMenu();
 }

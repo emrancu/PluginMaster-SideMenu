@@ -3,20 +3,20 @@
 
 namespace PluginMaster\SideMenu\base;
 
-
-use PluginMaster\SideMenu\base\OptionFormatter;
+use PluginMaster\SideMenu\base\SideMenuBase;
 
 class SideMenuRegister implements SideMenuBase
 {
-    use OptionFormatter;
 
     protected $currentMain;
     protected $controller;
+    protected $position;
+    protected $icon;
+    protected $removeSubMenu;
+
     protected $subMenu;
     protected $subController;
     protected $subTitle;
-    protected $position;
-    protected $icon;
 
 
     /**
@@ -29,20 +29,28 @@ class SideMenuRegister implements SideMenuBase
             $this->currentMain,
             'manage_options',
             $this->currentMain,
-            $this->namespace($this->controller),
+            $this->functionArray($this->controller),
             $this->icon,
             $this->position
         );
     }
 
+    public function functionArray($options)
+    {
+        $exp = explode('@', $options);
+        $class = "App" . "\\controller\\" . "sidenav\\" . $exp[0];
+        return [new $class(), $exp[1]];
+    }
+
     /**
      * @param $nav
      */
-    public function removeFirstSubMenu($nav)
+    public function removeFirstSubMenu()
     {
-        remove_submenu_page($nav, $nav);
+        if ($this->removeSubMenu) {
+            remove_submenu_page($this->currentMain, $this->currentMain);
+        }
     }
-
 
     /**
      * @return mixed
@@ -55,8 +63,9 @@ class SideMenuRegister implements SideMenuBase
             $this->subTitle,
             'manage_options',
             $this->subMenu,
-            $this->namespace($this->subController)
+            $this->functionArray($this->subController)
         );
     }
+
 
 }
