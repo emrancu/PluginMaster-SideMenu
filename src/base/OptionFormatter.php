@@ -1,7 +1,7 @@
 <?php
 
 
-namespace PluginMaster\Routing\base;
+namespace PluginMaster\SideMenu\base;
 
 
 trait OptionFormatter
